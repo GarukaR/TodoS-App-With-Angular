@@ -1,0 +1,36 @@
+<section class="todoapp">
+    <header class="header">
+        <h1>Todos App</h1>
+        <input autofocus class="new-todo" type="text" placeholder="What needs to be done?" [(ngModel)]="newTodo"
+            (keyup.enter)="addTodo()">
+    </header>
+    <!-- Shows list of todos if there are any -->
+    @if(allItems.length > 0){
+    <section class="main">
+        <!-- Shows toggle all button if there are any todos -->
+
+        @if(items.length > 0){
+        <input class="toggle-all" id="toggle-all" type="checkbox" (change)="toggleAll($event.target.checked)"
+            [checked]="remaining === 0">
+        <label for="toggle-all">Mark all as complete</label>
+
+        <ul class="todo-list">
+            @for(item of items; track item.id){
+            <!-- This list item conditionally applies the 'completed' class based on the item.completed property -->
+            <app-item [itemData]="item" [(editTodoTextData)]="editTodoText"
+                (toggleCompletionEvent)="toggleCompletion($event)" (removeTodoEvent)="removeTodo($event)"
+                (editTodoEvent)="editTodo($event)" (saveItemEvent)="saveItem($event)"
+                (cancelEditEvent)="cancelEdit($event)">
+            </app-item>
+            }
+        </ul>
+        }
+    </section>
+
+    <app-footer [remaining]="remaining" [filter]="filter" [completed]="completed"
+        (removeCompletedEvent)="removeCompleted()" (changeFilterEvent)="changeFilter($event)"></app-footer>
+    }
+    <button class="clear-storage" (click)="clearStore()">
+        Clear Local Storage Data
+    </button>
+</section>

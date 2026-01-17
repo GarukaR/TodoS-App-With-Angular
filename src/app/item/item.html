@@ -1,0 +1,25 @@
+@if (itemData) {
+<li class="todo-item" [class.completed]="itemData.completed" [class.editing]="itemData.editing">
+
+    <div class="view">
+        <!-- Checkbox to toggle the completion status of the todo item -->
+        <input class="toggle" type="checkbox" (change)="toggleCompletionEventMethod(itemData)"
+            [checked]="itemData.completed">
+        @if(!itemData.editing){
+        <!-- Label to display the title of the todo item -->
+        <label (dblclick)="editTodoEventMethod(itemData)">{{ itemData.title }}</label>
+        <!-- Button to remove the todo item -->
+        <button class="destroy" (click)="removeTodoEventMethod(itemData)"></button>
+        }
+    </div>
+
+    @if(itemData.editing){
+    <div class="edit-wrapper">
+        <input class="edit" #editInput type="text" [ngModel]="editTodoTextData"
+            (ngModelChange)="editingTodoTitleChangeEventMethod($event)" (keyup.enter)="saveItemEventMethod(itemData)"
+            (blur)="cancelEditEventMethod(itemData)">
+        <div class="float-right">Press ENTER to save</div>
+    </div>
+    }
+</li>
+}

@@ -1,0 +1,28 @@
+<footer class="footer">
+    <!-- Shows remaining incomplete items count at the bottom of the list -->
+    <span class="todo-count">
+        <strong>{{remaining}}</strong>
+        <span>{{remaining == 1 ? ' item ' : ' items '}}left</span>
+    </span>
+
+    <!-- Shows filters to switch between all, active, and completed items -->
+    <ul class="filters">
+        <li>
+            <a href="#/all" (click)="changeFilterMethod('all')">All</a>
+        </li>
+        <li>
+            <a href="#/active" (click)="changeFilterMethod('active')">Active</a>
+        </li>
+        <li>
+            <a href="#/completed" (click)="changeFilterMethod('completed')">Completed</a>
+        </li>
+    </ul>
+
+    <!-- Shows clear completed button if there are any completed items -->
+    @if(completed > 0){
+    <button class="clear-completed" (click)="removeCompletedEventMethod()">
+        Clear completed todos
+    </button>
+    }
+
+</footer>
