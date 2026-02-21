@@ -23,7 +23,10 @@ EXPOSE 80
 # This is because the nginx image has a default command that starts the nginx server
 
 # Build the Docker image with the following command:
-#   docker build -t todomvc-fixed:v1.0 .
+#   docker build -t todomvc-fixed:v1.1 .
 
 # Run the Docker container with the following command:
-#   docker run -d -p 3000:80 --name todomvc-fixed todomvc-fixed:v1.0
+#   docker run -d -p 3000:80 --name todomvc-fixed todomvc-fixed:v1.1
+
+# Save docker image into tar file
+#   docker save -o todo-mvc-container.tar todomvc-fixed:v1.1
