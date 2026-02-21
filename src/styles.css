@@ -54,6 +54,47 @@ button {
     border: none;
 }
 
+.add-todo-btn {
+    padding: 16px 16px 16px 60px;
+    position: absolute;
+    right:0;
+    margin: 10px 10px;
+    background: linear-gradient(135deg, #4CAF50, #45a049); /* Green gradient */
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect */
+.add-todo-btn:hover {
+    background: linear-gradient(135deg, #45a049, #3e8e41);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Active (click) effect */
+.add-todo-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Focus outline for accessibility */
+.add-todo-btn:focus {
+    outline: 2px solid #81c784;
+    outline-offset: 2px;
+}
+
+.header{
+    position: relative;
+    width:100%;
+}
+
 /* main, toggle-all */
 /* relative aligns the new-todo input and down-facing chevron */
 .main {
