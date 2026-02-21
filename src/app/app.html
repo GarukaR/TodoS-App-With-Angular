@@ -2,7 +2,8 @@
     <header class="header">
         <h1>Todos App</h1>
         <input autofocus class="new-todo" type="text" placeholder="What needs to be done?" [(ngModel)]="newTodo"
-            (keyup.enter)="addTodo()">
+            (keyup.enter)="addTodo()" >
+        <button class="add-todo-btn" (click)="addTodo()">Add Todo</button>
     </header>
     <!-- Shows list of todos if there are any -->
     @if(allItems.length > 0){

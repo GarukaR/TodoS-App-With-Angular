@@ -27,4 +27,3 @@ EXPOSE 80
 
 # Run the Docker container with the following command:
 #   docker run -d -p 3000:80 --name todomvc-fixed todomvc-fixed:v1.0
-
